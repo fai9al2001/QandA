@@ -2,10 +2,12 @@
   "name": "qa-site",
   "private": true,
   "version": "0.1.0",
+  "homepage": "https://fai9al2001.github.io/QandA/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+  "build:docs": "tsc -b && vite build --outDir docs",
     "build:pages": "cross-env VITE_BASE=%VITE_BASE% npm run build",
     "copy404": "copy dist\\index.html dist\\404.html",
     "predeploy": "npm run build && npm run copy404",

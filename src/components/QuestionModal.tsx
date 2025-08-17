@@ -29,8 +29,8 @@ export const QuestionModal: React.FC<Props> = ({ question, onClose }) => {
   const ss = String(seconds % 60).padStart(2, '0');
 
   function handleAward(teamId?: string) {
-    if (teamId) awardPoints(teamId, question.points);
-    markQuestionUsed(question.id);
+  if (teamId) awardPoints(teamId, question!.points);
+  markQuestionUsed(question!.id);
     nextTeam();
     onClose();
   }
@@ -40,11 +40,11 @@ export const QuestionModal: React.FC<Props> = ({ question, onClose }) => {
       <div className="relative w-full max-w-2xl bg-white dark:bg-neutral-900 rounded-lg shadow-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden animate-scaleIn">
         <div className="p-6 space-y-4">
           <div className="flex items-center justify-between text-xs uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-            <span>{question.difficulty === 'easy' ? 'سهل' : question.difficulty === 'medium' ? 'متوسط' : 'صعب'}</span>
+            <span>{question!.difficulty === 'easy' ? 'سهل' : question!.difficulty === 'medium' ? 'متوسط' : 'صعب'}</span>
             <span className="font-mono">{mm}:{ss}</span>
-            <span className="font-semibold text-primary-600">{question.points}</span>
+            <span className="font-semibold text-primary-600">{question!.points}</span>
           </div>
-          <h2 className="text-lg font-semibold leading-snug">{question.question}</h2>
+          <h2 className="text-lg font-semibold leading-snug">{question!.question}</h2>
           {!showAnswer && (
             <button onClick={() => setShowAnswer(true)} className="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary-500 text-sm">عرض الإجابة</button>
           )}
@@ -52,7 +52,7 @@ export const QuestionModal: React.FC<Props> = ({ question, onClose }) => {
             <div className="space-y-4">
               <div className="p-4 bg-primary-50 dark:bg-primary-950/40 border border-primary-200 dark:border-primary-800 rounded text-primary-700 dark:text-primary-300">
                 <p className="font-medium">الإجابة:</p>
-                <p>{question.answer}</p>
+                <p>{question!.answer}</p>
               </div>
               <p className="text-sm font-medium">من أجاب بشكل صحيح؟</p>
               <div className="flex flex-wrap gap-2">
