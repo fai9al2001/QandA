@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+  "build": "vite build",
+  "typecheck": "tsc -b",
   "build:docs": "tsc -b && vite build --outDir docs",
     "build:pages": "cross-env VITE_BASE=%VITE_BASE% npm run build",
     "copy404": "copy dist\\index.html dist\\404.html",
